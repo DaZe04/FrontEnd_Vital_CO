@@ -1,0 +1,82 @@
+<div class="container">
+  <div style="text-align: center; margin: 5%">
+    <h2>Registrar Ingrediente</h2>
+  </div>
+
+  <div style="text-align: center; margin: 5%">
+    <form [formGroup]="form" (submit)="registrar()" class="example-form">
+
+      <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre" />
+        <mat-error>
+          @if (form.get('nombre')?.hasError('required')) {
+            El nombre es obligatorio.
+          }
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>Grasas</mat-label>
+        <input matInput type="number" formControlName="grasas" />
+        <mat-error>
+          @if (form.get('grasas')?.hasError('required')) {
+            Las grasas son obligatorias.
+          }
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>Calorías</mat-label>
+        <input matInput type="number" formControlName="calorias" />
+        <mat-error>
+          @if (form.get('calorias')?.hasError('required')) {
+            Las calorías son obligatorias.
+          }
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>Azúcares</mat-label>
+        <input matInput type="number" formControlName="azucares" />
+        <mat-error>
+          @if (form.get('azucares')?.hasError('required')) {
+            Los azúcares son obligatorios.
+          }
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>Carbohidratos</mat-label>
+        <input matInput type="number" formControlName="carbohidratos" />
+        <mat-error>
+          @if (form.get('carbohidratos')?.hasError('required')) {
+            Los carbohidratos son obligatorios.
+          }
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>Proteínas</mat-label>
+        <input matInput type="number" formControlName="proteinas" />
+        <mat-error>
+          @if (form.get('proteinas')?.hasError('required')) {
+            Las proteínas son obligatorias.
+          }
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+      <div>
+        <button matButton="elevated" color="primary" type="submit">Registrar</button>
+        <button matButton="elevated" color="warn" type="button" routerLink="/">Cancelar</button>
+      </div>
+
+    </form>
+  </div>
+</div>

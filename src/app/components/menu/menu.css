@@ -1,0 +1,83 @@
+/* Fondo general */
+
+body, .main-content {
+    background: #060607; /* gris muy claro profesional */
+    font-family: 'Inter', sans-serif;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #5cce61;
+  padding: 25px 20px;
+  border-right: 2px solid #2d84be;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.05);
+  overflow-y: auto;
+}
+
+/* Logo */
+.logo {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 800;
+  color: #1c6758;
+  margin-bottom: 30px;
+}
+
+/* Contenedor de items */
+.menu-section {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Cada bloque */
+.menu-item {
+  text-align: left;
+}
+
+/* Iconos */
+.icon {
+  font-size: 26px;
+  color: #1c6758;
+}
+
+/* Título de cada sección */
+.menu-item h3 {
+  margin: 6px 0 12px;
+  font-size: 18px;
+  color: #1b1b1b;
+  font-weight: 600;
+}
+
+/* Botones */
+.menu-btn {
+  width: 100%;
+  padding: 9px 0;
+  margin: 4px 0;
+  border-radius: 30px;
+  border: none;
+  background-color: #1c6758;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.menu-btn:hover {
+  background-color: #239a75;
+}
+
+/* Botón secundario */
+.menu-btn.secondary {
+  background-color: #e3f6f5;
+  color: #1c6758;
+}
+
+.menu-btn.secondary:hover {
+  background-color: #c4fff9;
+}

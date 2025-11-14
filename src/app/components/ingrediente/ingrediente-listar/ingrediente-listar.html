@@ -1,0 +1,85 @@
+<div class="container">
+  <div style="text-align: center; margin: 5%">
+    <h2>Lista de Ingredientes</h2>
+  </div>
+
+  <div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="c1">
+        <th mat-header-cell *matHeaderCellDef>No.</th>
+        <td mat-cell *matCellDef="let element; let i = index">
+          {{ i + 1 }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="c2">
+        <th mat-header-cell *matHeaderCellDef>Nombre</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.nombre }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="c3">
+        <th mat-header-cell *matHeaderCellDef>Grasas</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.grasas }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="c4">
+        <th mat-header-cell *matHeaderCellDef>Calorías</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.calorias }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="c5">
+        <th mat-header-cell *matHeaderCellDef>Azúcares</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.azucares }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="c6">
+        <th mat-header-cell *matHeaderCellDef>Carbohidratos</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.carbohidratos }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="c7">
+        <th mat-header-cell *matHeaderCellDef>Proteínas</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.proteinas }}
+        </td>
+      </ng-container>
+
+      <!-- ACTUALIZAR -->
+        <ng-container matColumnDef="c8">
+            <th mat-header-cell *matHeaderCellDef>Actualizar</th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-icon-button 
+                            color="primary" 
+                            [routerLink]="['/ingrediente/editar', element.idIngredientes]">
+                            <mat-icon>edit</mat-icon>
+                    </button>
+                </td>
+        </ng-container>
+
+      <!-- ELIMINAR -->
+      <ng-container matColumnDef="c9">
+        <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button (click)="eliminar(element.idIngredientes)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+  </div>
+</div>
