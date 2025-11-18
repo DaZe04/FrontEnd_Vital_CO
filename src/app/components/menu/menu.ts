@@ -14,5 +14,5 @@ import { MatCardModule } from '@angular/material/card';
   styleUrl: './menu.css',
 })
 export class Menu {
-
+  
 }

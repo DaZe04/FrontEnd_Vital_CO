@@ -1,7 +1,8 @@
 export class Foro {
-  idForo!: number;
-  titulo!: string;
-  descripcion!: string;
-  fechaCreacion!: string;
-  usuario!: any;
+  idForo: number = 0;
+  titulo: string = "";
+  contenido: string = "";
+  fechaPublicacion: string = "";
+  idUsuario: number = 0;
+  nombreUsuario: string = "";
 }

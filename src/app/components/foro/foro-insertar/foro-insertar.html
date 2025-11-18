@@ -1,0 +1,61 @@
+<div class="container">
+  <div style="text-align: center; margin: 5%">
+    <h2>Registro de Foro</h2>
+  </div>
+
+  <div style="text-align: center; margin: 5%">
+    <form [formGroup]="form" (submit)="aceptar()">
+
+      @if (edicion) {
+      <mat-form-field>
+        <mat-label>ID</mat-label>
+        <input matInput formControlName="codigo" />
+      </mat-form-field>
+      }
+
+      <br />
+
+      <mat-form-field>
+        <mat-label>Título</mat-label>
+        <input matInput formControlName="titulo" />
+        <mat-error>
+          @if (form.get('titulo')?.hasError('required')) { Ingrese título!! }
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+
+      <mat-form-field>
+        <mat-label>Contenido</mat-label>
+        <textarea matInput formControlName="contenido"></textarea>
+      </mat-form-field>
+
+      <br />
+
+      <mat-form-field>
+        <mat-label>Fecha de publicación</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fecha" />
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <br />
+
+      <mat-form-field>
+        <mat-label>ID Usuario</mat-label>
+        <input matInput formControlName="idUsuario" type="number" />
+      </mat-form-field>
+
+      <br />
+
+      <mat-form-field>
+        <mat-label>Nombre Usuario</mat-label>
+        <input matInput formControlName="nombreUsuario" />
+      </mat-form-field>
+
+      <br />
+
+      <button matButton="elevated">Guardar</button>
+    </form>
+  </div>
+</div>

@@ -6,6 +6,8 @@ import { IngredienteEditarComponent } from './components/ingrediente/ingrediente
 import { UsuarioListarComponent } from './components/usuario/usuario-listar/usuario-listar';
 import { UsuarioInsertarComponent } from './components/usuario/usuario-insertar/usuario-insertar';
 import { UsuarioEditarComponent } from './components/usuario/usuario-editar/usuario-editar';
+import { ForoListar } from './components/foro/foro-listar/foro-listar';
+import { ForoInsertar } from './components/foro/foro-insertar/foro-insertar';
 
 export const routes: Routes = [
   { path: '', component: Menu },
@@ -15,4 +17,6 @@ export const routes: Routes = [
   { path: 'usuario/listar', component: UsuarioListarComponent },
   { path: 'usuario/insertar', component: UsuarioInsertarComponent },
   { path: 'usuario/editar/:id', component: UsuarioEditarComponent },
+  { path: 'foro/listar', component: ForoListar },
+  { path: 'foro/insertar', component: ForoInsertar }
 ];

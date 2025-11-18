@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UsuarioService } from '../../../services/usuario';
-import { RolService } from '../../../services/rol';
+import { UsuarioService } from '../../../services/usuario-service';
+import { RolService } from '../../../services/rol-service';
 
 import { CommonModule } from '@angular/common';              // 👈 AÑADIR ESTO
 

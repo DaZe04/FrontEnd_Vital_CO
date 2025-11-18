@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { IngredienteService } from '../../../services/ingredienteservice';
+import { IngredienteService } from '../../../services/ingredienteservice-service';
 import { Ingrediente } from '../../../models/ingrediente.model';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
