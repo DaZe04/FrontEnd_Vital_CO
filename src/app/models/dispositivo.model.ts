@@ -1,6 +1,8 @@
 export class Dispositivo {
-  idDispositivo!: number;
-  nombre!: string;
+  id_dispositivo!: number;
   tipo!: string;
-  usuario!: any;
+  marca!: string;
+  modelo!: string;
+  fecha_sincronizacion!: string; 
+  id_Usuario!: number; 
 }

@@ -8,6 +8,13 @@ import { UsuarioInsertarComponent } from './components/usuario/usuario-insertar/
 import { UsuarioEditarComponent } from './components/usuario/usuario-editar/usuario-editar';
 import { ForoListar } from './components/foro/foro-listar/foro-listar';
 import { ForoInsertar } from './components/foro/foro-insertar/foro-insertar';
+import { RegistroComidaListarComponent } from './components/registro-comida/registro-comida-listar/registro-comida-listar';
+import { RegistroComidasInsertarComponent } from './components/registro-comida/registro-comida-insertar/registro-comida-insertar';
+import { RegistroComidasEditarComponent } from './components/registro-comida/registro-comida-editar/registro-comida-editar';
+import { DispositivoListarComponent } from './components/dispositivo/dispositivo-listar/dispositivo-listar';
+import { DispositivoInsertarComponent } from './components/dispositivo/dispositivo-insertar/dispositivo-insertar';
+import { DispositivoEditarComponent } from './components/dispositivo/dispositivo-editar/dispositivo-editar';
+
 
 export const routes: Routes = [
   { path: '', component: Menu },
@@ -18,5 +25,12 @@ export const routes: Routes = [
   { path: 'usuario/insertar', component: UsuarioInsertarComponent },
   { path: 'usuario/editar/:id', component: UsuarioEditarComponent },
   { path: 'foro/listar', component: ForoListar },
-  { path: 'foro/insertar', component: ForoInsertar }
+  { path: 'foro/insertar', component: ForoInsertar },
+  { path: 'registrocomida/listar', component: RegistroComidaListarComponent },
+  { path: 'registrocomida/insertar', component: RegistroComidasInsertarComponent },
+  { path: 'registrocomida/editar/:id', component: RegistroComidasEditarComponent },
+  { path: 'dispositivo/listar', component: DispositivoListarComponent },
+  { path: 'dispositivo/insertar', component: DispositivoInsertarComponent },
+  { path: 'dispositivo/editar/:id', component: DispositivoEditarComponent },
+
 ];
