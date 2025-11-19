@@ -8,6 +8,12 @@ import { UsuarioInsertarComponent } from './components/usuario/usuario-insertar/
 import { UsuarioEditarComponent } from './components/usuario/usuario-editar/usuario-editar';
 import { ForoListar } from './components/foro/foro-listar/foro-listar';
 import { ForoInsertar } from './components/foro/foro-insertar/foro-insertar';
+import { RegistroComidaListarComponent } from './components/registro-comida/registro-comida-listar/registro-comida-listar';
+import { RegistroComidasInsertarComponent } from './components/registro-comida/registro-comida-insertar/registro-comida-insertar';
+import { RegistroComidasEditarComponent } from './components/registro-comida/registro-comida-editar/registro-comida-editar';
+import { DispositivoListarComponent } from './components/dispositivo/dispositivo-listar/dispositivo-listar';
+import { DispositivoInsertarComponent } from './components/dispositivo/dispositivo-insertar/dispositivo-insertar';
+import { DispositivoEditarComponent } from './components/dispositivo/dispositivo-editar/dispositivo-editar';
 import { Comentarios } from './models/comentario.model';
 import { ComentariosListar } from './components/comentarios/comentarios-listar/comentarios-listar';
 import { ComentariosInsertar } from './components/comentarios/comentarios-insertar/comentarios-insertar';
@@ -27,5 +33,11 @@ export const routes: Routes = [
   { path: 'comentario/listar', component: ComentariosListar },
   { path: 'comentario/insertar', component: ComentariosInsertar },
   { path: 'alertas/listar', component: AlertasListar },
-  { path: 'alertas/insertar', component: AlertasInsertar }
+  { path: 'alertas/insertar', component: AlertasInsertar },
+  { path: 'registrocomida/listar', component: RegistroComidaListarComponent },
+  { path: 'registrocomida/insertar', component: RegistroComidasInsertarComponent },
+  { path: 'registrocomida/editar/:id', component: RegistroComidasEditarComponent },
+  { path: 'dispositivo/listar', component: DispositivoListarComponent },
+  { path: 'dispositivo/insertar', component: DispositivoInsertarComponent },
+  { path: 'dispositivo/editar/:id', component: DispositivoEditarComponent }
 ];

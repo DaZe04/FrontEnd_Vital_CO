@@ -1,0 +1,78 @@
+<div class="container"> 
+  <div style="text-align: center; margin: 5%">
+    <div class="title">
+      <h2>Registrar Dispositivo</h2>
+    </div>
+
+    <div style="text-align: center; margin: 5%">
+      <form [formGroup]="form" (ngSubmit)="aceptar()" class="example-form">
+
+        <mat-form-field>
+          <mat-label>Tipo</mat-label>
+          <input matInput formControlName="tipo" />
+          <mat-error>
+            @if (form.get('tipo')?.hasError('required')) {
+              El tipo es obligatorio.
+            }
+          </mat-error>
+        </mat-form-field>
+        <br />
+
+        <mat-form-field>
+          <mat-label>Marca</mat-label>
+          <input matInput formControlName="marca" />
+          <mat-error>
+            @if (form.get('marca')?.hasError('required')) {
+              La marca es obligatoria.
+            }
+          </mat-error>
+        </mat-form-field>
+        <br />
+
+        <mat-form-field>
+          <mat-label>Modelo</mat-label>
+          <input matInput formControlName="modelo" />
+          <mat-error>
+            @if (form.get('modelo')?.hasError('required')) {
+              El modelo es obligatorio.
+            }
+          </mat-error>
+        </mat-form-field>
+        <br />
+
+        <mat-form-field>
+          <mat-label>Fecha de Sincronización</mat-label>
+          <input matInput type="date" formControlName="fecha_sincronizacion" />
+          <mat-error>
+            @if (form.get('fecha_sincronizacion')?.hasError('required')) {
+              La fecha es obligatoria.
+            }
+          </mat-error>
+        </mat-form-field>
+        <br />
+
+        <mat-form-field>
+          <mat-label>ID Usuario</mat-label>
+          <input matInput type="number" formControlName="id_Usuario" />
+          <mat-error>
+            @if (form.get('id_Usuario')?.hasError('required')) {
+              El ID de usuario es obligatorio.
+            }
+          </mat-error>
+        </mat-form-field>
+        <br />
+
+        <div>
+          <button matButton="elevated" color="primary" type="submit">
+            Registrar
+          </button>
+
+          <button matButton="elevated" color="warn" type="button" (click)="cancelar()">
+            Cancelar
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
