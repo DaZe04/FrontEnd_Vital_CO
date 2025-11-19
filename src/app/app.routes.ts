@@ -14,7 +14,11 @@ import { RegistroComidasEditarComponent } from './components/registro-comida/reg
 import { DispositivoListarComponent } from './components/dispositivo/dispositivo-listar/dispositivo-listar';
 import { DispositivoInsertarComponent } from './components/dispositivo/dispositivo-insertar/dispositivo-insertar';
 import { DispositivoEditarComponent } from './components/dispositivo/dispositivo-editar/dispositivo-editar';
-
+import { Comentarios } from './models/comentario.model';
+import { ComentariosListar } from './components/comentarios/comentarios-listar/comentarios-listar';
+import { ComentariosInsertar } from './components/comentarios/comentarios-insertar/comentarios-insertar';
+import { AlertasInsertar } from './components/alertas/alertas-insertar/alertas-insertar';
+import { AlertasListar } from './components/alertas/alertas-listar/alertas-listar';
 
 export const routes: Routes = [
   { path: '', component: Menu },
@@ -26,11 +30,14 @@ export const routes: Routes = [
   { path: 'usuario/editar/:id', component: UsuarioEditarComponent },
   { path: 'foro/listar', component: ForoListar },
   { path: 'foro/insertar', component: ForoInsertar },
+  { path: 'comentario/listar', component: ComentariosListar },
+  { path: 'comentario/insertar', component: ComentariosInsertar },
+  { path: 'alertas/listar', component: AlertasListar },
+  { path: 'alertas/insertar', component: AlertasInsertar },
   { path: 'registrocomida/listar', component: RegistroComidaListarComponent },
   { path: 'registrocomida/insertar', component: RegistroComidasInsertarComponent },
   { path: 'registrocomida/editar/:id', component: RegistroComidasEditarComponent },
   { path: 'dispositivo/listar', component: DispositivoListarComponent },
   { path: 'dispositivo/insertar', component: DispositivoInsertarComponent },
-  { path: 'dispositivo/editar/:id', component: DispositivoEditarComponent },
-
+  { path: 'dispositivo/editar/:id', component: DispositivoEditarComponent }
 ];

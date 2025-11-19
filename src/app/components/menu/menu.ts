@@ -12,6 +12,7 @@ import { MatCardModule } from '@angular/material/card';
  imports: [MatToolbarModule, MatIconModule, MatButtonModule, RouterLink,MatMenuModule,MatCardModule],
   templateUrl: './menu.html',
   styleUrl: './menu.css',
+  standalone: true
 })
 export class Menu {
   
