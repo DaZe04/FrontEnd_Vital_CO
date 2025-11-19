@@ -1,0 +1,39 @@
+<div class="container">
+  <h2 style="text-align:center; margin: 20px">
+    {{ edicion ? "Editar Alerta" : "Registrar Alerta" }}
+  </h2>
+
+  <form [formGroup]="form" (ngSubmit)="aceptar()">
+
+    @if (edicion) {
+      <mat-form-field>
+        <mat-label>ID</mat-label>
+        <input matInput formControlName="idAlerta" />
+      </mat-form-field>
+    }
+
+    <mat-form-field>
+      <mat-label>Mensaje</mat-label>
+      <input matInput formControlName="mensaje">
+      <mat-error>Ingrese mensaje</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Fecha</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="fecha">
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>ID Usuario</mat-label>
+      <input matInput type="number" formControlName="idUsuario">
+      <mat-error>Ingrese ID de usuario</mat-error>
+    </mat-form-field>
+
+    <div style="text-align:center">
+      <button mat-raised-button color="primary">Guardar</button>
+    </div>
+
+  </form>
+</div>
