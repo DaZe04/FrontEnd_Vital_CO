@@ -8,12 +8,12 @@ import { Dispositivo } from '../models/dispositivo.model';
 })
 export class DispositivoService {
 
-  private url = 'http://localhost:8080/dispositivos'; 
+  private url = 'http://localhost:8080/Dispo';
 
   constructor(private http: HttpClient) {}
 
   listar(): Observable<Dispositivo[]> {
-    return this.http.get<Dispositivo[]>(this.url);
+    return this.http.get<Dispositivo[]>(`${this.url}/dtos`);
   }
 
   insertar(dispositivo: Dispositivo): Observable<any> {

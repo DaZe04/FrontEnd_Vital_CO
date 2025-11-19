@@ -11,7 +11,7 @@ const base_url = environment.base;
 })
 export class RegistroComidasService {
 
-  private baseUrl = `http://localhost:8080/registros_comidas`;
+  private baseUrl = `http://localhost:8080/registro-comida`;
 
   constructor(private http: HttpClient) {}
 
