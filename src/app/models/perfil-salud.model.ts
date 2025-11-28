@@ -1,8 +1,9 @@
 export class PerfilSalud {
-  idPerfil!: number;
+  idPerfilSalud!: number;
   peso!: number;
   altura!: number;
-  edad!: number;
-  condicion!: string;
-  usuario!: any;
+  nivelTrigliceridos!: number;
+  nivelColesterol!: number;
+  fechaActualizacion!: Date;
+  usuario!: number;  // Solo el ID del usuario (no el objeto completo)
 }

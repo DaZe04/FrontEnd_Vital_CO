@@ -6,6 +6,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { provideNativeDateAdapter } from '@angular/material/core';
+import { MatCardModule } from '@angular/material/card';
 
 
 import { Comentarios } from '../../../models/comentario.model';
@@ -19,10 +20,11 @@ import { ComentariosService } from '../../../services/comentario-service';
     MatFormFieldModule,
     MatDatepickerModule,
     MatButtonModule,
+    MatCardModule,
   ],
   templateUrl: './comentarios-insertar.html',
   providers: [provideNativeDateAdapter()],
-  styleUrl: './comentarios-insertar.css',
+  styleUrls: ['./comentarios-insertar.css'],
 })
 export class ComentariosInsertar {
   form: FormGroup = new FormGroup({});
@@ -47,10 +49,10 @@ export class ComentariosInsertar {
 
     this.form = this.formBuilder.group({
       codigo: [''],
-      contenido: ['', Validators.required],
+      contenido: ['', [Validators.required, Validators.minLength(5)]],
       fecha: ['', Validators.required],
-      idUsuario: ['', Validators.required],
-      nombreUsuario: ['', Validators.required],
+      idUsuario: ['', [Validators.required, Validators.min(1)]],
+      nombreUsuario: ['', [Validators.required, Validators.minLength(3)]],
     });
   }
 
@@ -72,7 +74,7 @@ export class ComentariosInsertar {
         });
       }
 
-      this.router.navigate(['comentarios']);
+      this.router.navigate(['/menu/comentario/listar']);
     }
   }
 

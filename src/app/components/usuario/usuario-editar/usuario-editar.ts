@@ -54,7 +54,7 @@ export class UsuarioEditarComponent implements OnInit {
   actualizar() {
     if (this.form.valid) {
       this.usuarioService.actualizar(this.form.value).subscribe(() => {
-        this.router.navigate(['/usuario/listar']);
+        this.router.navigate(['/menu/usuario/listar']);
       });
     }
   }

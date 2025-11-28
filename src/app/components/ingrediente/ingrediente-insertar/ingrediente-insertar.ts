@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-ingrediente-insertar',
@@ -15,9 +16,11 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
-    RouterModule
+    RouterModule,
+    MatCardModule
   ],
   templateUrl: './ingrediente-insertar.html',
+  styleUrls: ['./ingrediente-insertar.css'],
 })
 export class IngredienteInsertarComponent {
   form: FormGroup;
@@ -28,19 +31,19 @@ export class IngredienteInsertarComponent {
     private router: Router
   ) {
     this.form = this.fb.group({
-      nombre: ['', Validators.required],
-      grasas: ['', Validators.required],
-      calorias: ['', Validators.required],
-      azucares: ['', Validators.required],
-      carbohidratos: ['', Validators.required],
-      proteinas: ['', Validators.required],
+      nombre: ['', [Validators.required, Validators.minLength(3)]],
+      grasas: [0, [Validators.required, Validators.min(0)]],
+      calorias: [0, [Validators.required, Validators.min(0)]],
+      azucares: [0, [Validators.required, Validators.min(0)]],
+      carbohidratos: [0, [Validators.required, Validators.min(0)]],
+      proteinas: [0, [Validators.required, Validators.min(0)]],
     });
   }
 
   registrar() {
     if (this.form.valid) {
       this.ingredienteService.insertar(this.form.value).subscribe(() => {
-        this.router.navigate(['/ingrediente/listar']);
+        this.router.navigate(['/menu/ingrediente/listar']);
       });
     }
   }

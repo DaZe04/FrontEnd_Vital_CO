@@ -9,12 +9,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 
 @Component({
   selector: 'app-alertas-insertar',
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatSelectModule, MatDatepickerModule,ReactiveFormsModule, MatButtonModule],
+  imports: [MatFormFieldModule, MatInputModule, MatSelectModule, MatDatepickerModule,ReactiveFormsModule, MatButtonModule, MatCardModule],
   templateUrl: './alertas-insertar.html',
   providers: [provideNativeDateAdapter()],
   styleUrls: ['./alertas-insertar.css']
@@ -42,9 +43,9 @@ export class AlertasInsertar implements OnInit {
 
     this.form = this.formBuilder.group({
       idAlerta: [''],
-      mensaje: ['', Validators.required],
+      mensaje: ['', [Validators.required, Validators.minLength(5)]],
       fecha: ['', Validators.required],
-      idUsuario: ['', Validators.required],
+      idUsuario: ['', [Validators.required, Validators.min(1)]],
     });
   }
 
@@ -65,7 +66,7 @@ export class AlertasInsertar implements OnInit {
         });
       }
 
-      this.router.navigate(['alertas']);
+      this.router.navigate(['/menu/alertas/listar']);
     }
   }
 

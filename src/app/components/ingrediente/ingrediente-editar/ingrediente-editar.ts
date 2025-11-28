@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatNativeDateModule, provideNativeDateAdapter } from '@angular/material/core';
 import { RouterModule } from '@angular/router';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-ingrediente-editar',
@@ -22,8 +23,10 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     MatNativeDateModule,
     RouterModule,
-    MatIconModule],
+    MatIconModule,
+    MatCardModule],
   templateUrl: './ingrediente-editar.html',
+  styleUrls: ['./ingrediente-editar.css'],
 })
 export class IngredienteEditarComponent implements OnInit {
 
@@ -70,7 +73,7 @@ export class IngredienteEditarComponent implements OnInit {
   actualizar() {
     if (this.form.valid) {
       this.ingredienteService.actualizar(this.form.value).subscribe(() => {
-        this.router.navigate(['/ingrediente/listar']);
+        this.router.navigate(['/menu/ingrediente/listar']);
       });
     }
   }

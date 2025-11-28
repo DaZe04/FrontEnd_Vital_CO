@@ -3,13 +3,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterLink } from "@angular/router";
+import { RouterLink, RouterOutlet } from "@angular/router";
 import { MatCardModule } from '@angular/material/card';
 
 
 @Component({
   selector: 'app-menu',
- imports: [MatToolbarModule, MatIconModule, MatButtonModule, RouterLink,MatMenuModule,MatCardModule],
+ imports: [MatToolbarModule, MatIconModule, MatButtonModule, RouterLink, RouterOutlet, MatMenuModule, MatCardModule],
   templateUrl: './menu.html',
   styleUrl: './menu.css',
   standalone: true

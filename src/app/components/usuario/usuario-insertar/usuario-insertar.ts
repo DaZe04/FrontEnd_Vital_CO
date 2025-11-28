@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-usuario-insertar',
@@ -21,8 +22,10 @@ import { MatButtonModule } from '@angular/material/button';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatButtonModule
-  ]
+    MatButtonModule,
+    MatCardModule
+  ],
+  styleUrls: ['./usuario-insertar.css']
 })
 export class UsuarioInsertarComponent implements OnInit {
 
@@ -39,14 +42,14 @@ export class UsuarioInsertarComponent implements OnInit {
   ngOnInit(): void {
 
     this.form = this.fb.group({
-      nombre: ['', Validators.required],
-      apellido: ['', Validators.required],
+      nombre: ['', [Validators.required, Validators.minLength(2)]],
+      apellido: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
-      contrasenia: ['', Validators.required],
+      contrasenia: ['', [Validators.required, Validators.minLength(8)]],
       fechaNacimiento: [''],
       fechaCreacion: [''],
       fechaSuscripcion: [''],
-      idRol: ['', Validators.required]
+      idRol: ['', [Validators.required, Validators.min(1)]]
     });
 
     this.rolService.listar().subscribe({
@@ -63,7 +66,7 @@ export class UsuarioInsertarComponent implements OnInit {
   aceptar() {
     if (this.form.valid) {
       this.usuarioService.insertar(this.form.value).subscribe(() => {
-        this.router.navigate(['/usuario/listar']);
+        this.router.navigate(['/menu/usuario/listar']);
       });
     }
   }

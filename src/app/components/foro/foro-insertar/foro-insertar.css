@@ -17,3 +17,61 @@ button[matButton="elevated"] {
 button[matButton="elevated"]:hover {
   background-color: #faf67c;
 }
+.page-bg {
+  background: linear-gradient(180deg, #f5f8ff 0%, #e8eef6 100%);
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.panel-card {
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid #d9e1ec;
+  background: linear-gradient(180deg, #ffffff 0%, #f3f6fc 100%);
+  box-shadow: 0 6px 18px rgba(31, 42, 68, 0.14);
+}
+
+.panel-card h2 {
+  color: #1f2a44;
+  font-weight: 800;
+}
+
+.panel-card mat-form-field {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.panel-card button[mat-raised-button],
+.panel-card button[mat-flat-button] {
+  border-radius: 24px;
+  font-weight: 700;
+}
+
+/* Tema profesional degradado */
+.panel-card {
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid #d9e1ec;
+  background: linear-gradient(180deg, #f9f9f9 0%, #e1effd 100%);
+  box-shadow: 0 6px 18px rgba(31, 42, 68, 0.12);
+}
+.panel-card h2 {
+  color: #0f263a;
+  font-weight: 700;
+  font-size: 1.8rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+}
+.panel-card button[mat-raised-button],
+.panel-card button[mat-flat-button] {
+  border-radius: 24px;
+  font-weight: 700;
+  padding: 10px 20px;
+  background-color: #f56a3f;
+  color: white;
+  text-transform: none;
+}
+.panel-card button[mat-raised-button]:hover,
+.panel-card button[mat-flat-button]:hover {
+  background-color: #e54b2e;
+}

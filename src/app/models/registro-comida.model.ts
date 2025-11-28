@@ -1,7 +1,7 @@
 export class RegistroComida {
-  id_registro!: number;
-  fecha_consumo!: string;
+  idRegistro!: number;
+  fechaConsumo!: string;
   notas!: string;
-  id_Usuario!: number;
-  id_Receta!: number;
+  idUsuario!: number;
+  idRecetas!: number;
 }

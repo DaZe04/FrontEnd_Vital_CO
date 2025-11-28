@@ -1,0 +1,21 @@
+<div class="page-bg">
+  <mat-card class="mat-elevation-z4 panel-card">
+    <h2 class="title">Top Ingredientes por Calorías</h2>
+    <div *ngIf="data.length; else noData">
+      <div class="chart-list">
+        <div class="chart-item" *ngFor="let item of data">
+          <div class="chart-label">
+            <span class="name">{{ item.nombre }}</span>
+            <span class="value">{{ item.totalCalorias | number:'1.0-2' }} kcal</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill" [style.width.%]="maxCal ? (item.totalCalorias / maxCal) * 100 : 0"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #noData>
+      <div class="no-data">Sin datos para mostrar.</div>
+    </ng-template>
+  </mat-card>
+</div>

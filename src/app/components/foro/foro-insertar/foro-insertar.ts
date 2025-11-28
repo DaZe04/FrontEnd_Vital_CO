@@ -14,6 +14,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatButtonModule } from '@angular/material/button';
 import { provideNativeDateAdapter } from '@angular/material/core';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-foro-insertar',
@@ -23,10 +24,11 @@ import { provideNativeDateAdapter } from '@angular/material/core';
     MatFormFieldModule,
     MatDatepickerModule,
     MatButtonModule,
+    MatCardModule,
   ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './foro-insertar.html',
-  styleUrl: './foro-insertar.css',
+  styleUrls: ['./foro-insertar.css'],
 })
 export class ForoInsertar {
   form: FormGroup = new FormGroup({});
@@ -51,11 +53,11 @@ export class ForoInsertar {
 
     this.form = this.formBuilder.group({
       codigo: [''],
-      titulo: ['', Validators.required],
-      contenido: ['', Validators.required],
+      titulo: ['', [Validators.required, Validators.minLength(3)]],
+      contenido: ['', [Validators.required, Validators.minLength(5)]],
       fecha: ['', Validators.required],
-      idUsuario: ['', Validators.required],
-      nombreUsuario: ['', Validators.required],
+      idUsuario: ['', [Validators.required, Validators.min(1)]],
+      nombreUsuario: ['', [Validators.required, Validators.minLength(3)]],
     });
   }
     aceptar(): void {
@@ -77,7 +79,7 @@ export class ForoInsertar {
         });
       }
 
-      this.router.navigate(['foro']);
+      this.router.navigate(['/menu/foro/listar']);
     }
   }
   

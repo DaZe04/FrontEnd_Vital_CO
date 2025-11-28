@@ -1,22 +1,35 @@
 /* Fondo general */
-
 body, .main-content {
     background: #060607; /* gris muy claro profesional */
     font-family: 'Inter', sans-serif;
+}
+
+/* Contenedor principal con flexbox */
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
 }
 
 /* SIDEBAR */
 .sidebar {
   width: 260px;
   height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: relative;
   background: #5cce61;
   padding: 25px 20px;
   border-right: 2px solid #2d84be;
   box-shadow: 4px 0 15px rgba(0, 0, 0, 0.05);
   overflow-y: auto;
+  flex-shrink: 0;
+}
+
+/* Área de contenido */
+.content-area {
+  flex: 1;
+  overflow-y: auto;
+  background: #ffffff;
+  padding: 20px;
 }
 
 /* Logo */

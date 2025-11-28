@@ -1,48 +1,69 @@
-<div class="container">
+<div class="container page-bg">
+  <mat-card class="mat-elevation-z4 panel-card">
   <div class="title">
     <h2>Registrar Usuario</h2>
   </div>
 
-  <form [formGroup]="form" (ngSubmit)="aceptar()" class="form">
+  <form [formGroup]="form" (ngSubmit)="aceptar()" class="form panel-grid">
 
     <mat-form-field appearance="outline">
       <mat-label>Nombre</mat-label>
       <input matInput formControlName="nombre">
+      <mat-error>
+        @if (form.get('nombre')?.hasError('required')) { Requerido }
+        @else if (form.get('nombre')?.hasError('minlength')) { Minimo 2 caracteres }
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Apellido</mat-label>
       <input matInput formControlName="apellido">
+      <mat-error>
+        @if (form.get('apellido')?.hasError('required')) { Requerido }
+        @else if (form.get('apellido')?.hasError('minlength')) { Minimo 2 caracteres }
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
       <input matInput formControlName="email">
+      <mat-error>
+        @if (form.get('email')?.hasError('required')) { Requerido }
+        @else if (form.get('email')?.hasError('email')) { Formato invalido }
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Contraseña</mat-label>
+      <mat-label>Contrasena</mat-label>
       <input matInput type="password" formControlName="contrasenia">
+      <mat-error>
+        @if (form.get('contrasenia')?.hasError('required')) { Requerido }
+        @else if (form.get('contrasenia')?.hasError('minlength')) { Minimo 8 caracteres }
+      </mat-error>
     </mat-form-field>
 
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline" class="full">
       <mat-label>Fecha Nacimiento</mat-label>
       <input matInput type="date" formControlName="fechaNacimiento">
     </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Fecha Suscripción</mat-label>
+    <mat-form-field appearance="outline" class="full">
+      <mat-label>Fecha Suscripcion</mat-label>
       <input matInput type="date" formControlName="fechaSuscripcion">
     </mat-form-field>
 
-            <mat-form-field appearance="outline" style="width: 48%;">
-            <mat-label>Rol</mat-label>
-            <mat-select formControlName="idRol">
-                <mat-option *ngFor="let r of roles" [value]="r.idRol">
-                {{ r.nombreRol }}
-                </mat-option>
-            </mat-select>
-            </mat-form-field>
+    <mat-form-field appearance="outline" class="full">
+      <mat-label>Rol</mat-label>
+      <mat-select formControlName="idRol">
+        <mat-option *ngFor="let r of roles" [value]="r.idRol">
+          {{ r.nombreRol }}
+        </mat-option>
+      </mat-select>
+      <mat-error>
+        @if (form.get('idRol')?.hasError('required')) { Requerido }
+        @else if (form.get('idRol')?.hasError('min')) { Seleccione rol valido }
+      </mat-error>
+    </mat-form-field>
 
 
     <div class="buttons">
@@ -56,4 +77,5 @@
     </div>
 
   </form>
+  </mat-card>
 </div>

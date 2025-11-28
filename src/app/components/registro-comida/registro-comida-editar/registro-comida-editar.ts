@@ -5,6 +5,9 @@ import { RegistroComidasService } from '../../../services/registro-comida-servic
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-registro-comidas-editar',
@@ -14,9 +17,13 @@ import { CommonModule } from '@angular/common';
     ReactiveFormsModule,
     RouterModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCardModule
   ],
-  templateUrl: './registro-comida-editar.html'
+  templateUrl: './registro-comida-editar.html',
+  styleUrls: ['./registro-comida-editar.css']
 })
 export class RegistroComidasEditarComponent implements OnInit {
 
@@ -32,11 +39,11 @@ export class RegistroComidasEditarComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      id_registro: [''],
-      fecha_consumo: ['', Validators.required],
-      notas: [''],
-      id_Usuario: ['', Validators.required],
-      id_Receta: ['', Validators.required]
+      idRegistro: [''],
+      fechaConsumo: ['', Validators.required],
+      notas: ['', [Validators.required, Validators.minLength(3)]],
+      idUsuario: ['', [Validators.required, Validators.min(1)]],
+      idRecetas: ['', [Validators.required, Validators.min(1)]]
     });
 
     this.id = this.route.snapshot.params['id'];
@@ -49,12 +56,12 @@ export class RegistroComidasEditarComponent implements OnInit {
   actualizar() {
     if (this.form.valid) {
       this.registroService.actualizar(this.form.value).subscribe(() => {
-        this.router.navigate(['/registro-comidas']);
+        this.router.navigate(['/menu/registrocomida/listar']);
       });
     }
   }
 
   cancelar() {
-    this.router.navigate(['/registro-comidas']);
+    this.router.navigate(['/menu/registrocomida/listar']);
   }
 }

@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -17,9 +18,11 @@ import { CommonModule } from '@angular/common';
     RouterModule,
     MatTableModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule
   ],
-  templateUrl: './registro-comida-listar.html'
+  templateUrl: './registro-comida-listar.html',
+  styleUrls: ['./registro-comida-listar.css']
 })
 export class RegistroComidaListarComponent implements OnInit {
 
@@ -38,15 +41,11 @@ export class RegistroComidaListarComponent implements OnInit {
     if (confirm('¿Seguro que deseas eliminar este registro?')) {
       this.registroComidaService.eliminar(id).subscribe({
         next: () => {
-          this.dataSource.data = this.dataSource.data.filter(r => r.id_registro !== id);
-          alert('Registro eliminado correctamente');
+          this.dataSource.data = this.dataSource.data.filter(r => r.idRegistro !== id);
+          alert('Eliminado exitosamente');
         },
-        error: err => {
-          if (err.status === 409) {
-            alert('No se puede eliminar este registro porque está relacionado con otros datos.');
-          } else {
-            alert('Error al eliminar el registro.');
-          }
+        error: () => {
+          alert('Error a eliminar');
         }
       });
     }

@@ -1,10 +1,10 @@
-<div class="container"> 
-  <div style="text-align: center; margin: 5%">
-    <div class="title">
+<div class="container page-bg"> 
+  <mat-card class="mat-elevation-z4 panel-card">
+    <div class="title" style="text-align: center; margin-bottom: 16px;">
       <h2>Registrar Dispositivo</h2>
     </div>
 
-    <div style="text-align: center; margin: 5%">
+    <div style="text-align: center;">
       <form [formGroup]="form" (ngSubmit)="aceptar()" class="example-form">
 
         <mat-form-field>
@@ -13,6 +13,8 @@
           <mat-error>
             @if (form.get('tipo')?.hasError('required')) {
               El tipo es obligatorio.
+            } @else if (form.get('tipo')?.hasError('minlength')) {
+              Minimo 2 caracteres.
             }
           </mat-error>
         </mat-form-field>
@@ -24,6 +26,8 @@
           <mat-error>
             @if (form.get('marca')?.hasError('required')) {
               La marca es obligatoria.
+            } @else if (form.get('marca')?.hasError('minlength')) {
+              Minimo 2 caracteres.
             }
           </mat-error>
         </mat-form-field>
@@ -35,17 +39,8 @@
           <mat-error>
             @if (form.get('modelo')?.hasError('required')) {
               El modelo es obligatorio.
-            }
-          </mat-error>
-        </mat-form-field>
-        <br />
-
-        <mat-form-field>
-          <mat-label>Fecha de Sincronización</mat-label>
-          <input matInput type="date" formControlName="fecha_sincronizacion" />
-          <mat-error>
-            @if (form.get('fecha_sincronizacion')?.hasError('required')) {
-              La fecha es obligatoria.
+            } @else if (form.get('modelo')?.hasError('minlength')) {
+              Minimo 2 caracteres.
             }
           </mat-error>
         </mat-form-field>
@@ -57,6 +52,8 @@
           <mat-error>
             @if (form.get('id_Usuario')?.hasError('required')) {
               El ID de usuario es obligatorio.
+            } @else if (form.get('id_Usuario')?.hasError('min')) {
+              Debe ser mayor a 0.
             }
           </mat-error>
         </mat-form-field>
@@ -74,5 +71,5 @@
 
       </form>
     </div>
-  </div>
+  </mat-card>
 </div>

@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -16,9 +17,11 @@ import { CommonModule } from '@angular/common';
     RouterModule,
     MatTableModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule
   ],
-  templateUrl: './usuario-listar.html'
+  templateUrl: './usuario-listar.html',
+  styleUrls: ['./usuario-listar.css']
 })
 export class UsuarioListarComponent implements OnInit {
 
@@ -38,15 +41,9 @@ export class UsuarioListarComponent implements OnInit {
       this.usuarioService.eliminar(id).subscribe({
         next: () => {
           this.dataSource.data = this.dataSource.data.filter(u => u.idUsuario !== id);
-          alert('Usuario eliminado correctamente');
+          alert('Eliminado exitosamente');
         },
-        error: err => {
-          if (err.status === 409) {
-            alert('No se puede eliminar este usuario porque está relacionado con otros registros.');
-          } else {
-            alert('Error al eliminar usuario.');
-          }
-        }
+        error: () => alert('Error a eliminar')
       });
     }
   }

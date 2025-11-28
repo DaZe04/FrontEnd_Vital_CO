@@ -5,6 +5,7 @@ import { DispositivoService } from '../../../services/dispositivo-service';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-dispositivo-editar',
@@ -14,9 +15,11 @@ import { CommonModule } from '@angular/common';
     ReactiveFormsModule,
     RouterModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule
   ],
-  templateUrl: './dispositivo-editar.html'
+  templateUrl: './dispositivo-editar.html',
+  styleUrls: ['./dispositivo-editar.css']
 })
 export class DispositivoEditarComponent implements OnInit {
 
@@ -38,7 +41,7 @@ export class DispositivoEditarComponent implements OnInit {
       marca: ['', Validators.required],
       modelo: ['', Validators.required],
       fecha_sincronizacion: ['', Validators.required],
-      id_Usuario: ['', Validators.required]
+      id_Usuario: [null, [Validators.required, Validators.min(1)]]
     });
 
     this.id = this.route.snapshot.params['id'];
@@ -50,13 +53,29 @@ export class DispositivoEditarComponent implements OnInit {
 
   actualizar() {
     if (this.form.valid) {
-      this.dispositivoService.editar(this.form.value).subscribe(() => {
-        this.router.navigate(['/dispositivo/listar']);
+      const idUsuario = this.form.value.id_Usuario;
+      const idUsuarioNum = Number(idUsuario);
+      
+      if (isNaN(idUsuarioNum) || idUsuarioNum <= 0) {
+        alert('Por favor ingresa un ID de usuario válido');
+        return;
+      }
+      
+      const dispositivo = {
+        id_dispositivo: this.form.value.id_dispositivo,
+        tipo: this.form.value.tipo,
+        marca: this.form.value.marca,
+        modelo: this.form.value.modelo,
+        fecha_sincronizacion: this.form.value.fecha_sincronizacion,
+        id_Usuario: idUsuarioNum
+      };
+      this.dispositivoService.editar(dispositivo as any).subscribe(() => {
+        this.router.navigate(['/menu/dispositivo/listar']);
       });
     }
   }
 
   cancelar() {
-    this.router.navigate(['/dispositivo/listar']);
+    this.router.navigate(['/menu/dispositivo/listar']);
   }
 }

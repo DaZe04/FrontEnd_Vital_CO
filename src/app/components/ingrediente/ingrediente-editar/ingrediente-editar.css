@@ -1,0 +1,29 @@
+.page-bg {
+  background: linear-gradient(180deg, #f5f8ff 0%, #e8eef6 100%);
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.panel-card {
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid #5fbf6a;
+  background: linear-gradient(180deg, #6dd17b 0%, #4dac5c 100%);
+  box-shadow: 0 8px 20px rgba(54, 119, 72, 0.22);
+}
+
+.panel-card h2 {
+  color: #0f2c1c;
+  font-weight: 800;
+}
+
+.panel-card mat-form-field {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.panel-card button[mat-raised-button],
+.panel-card button[mat-flat-button] {
+  border-radius: 24px;
+  font-weight: 700;
+}

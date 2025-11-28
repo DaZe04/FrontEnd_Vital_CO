@@ -1,0 +1,27 @@
+<div class="auth-bg">
+  <mat-card class="auth-card mat-elevation-z6">
+    <div class="brand">
+      <img src="/assets/logo.png" alt="Logo" class="logo" />
+      <div class="brand-text">
+        <div class="brand-title">Vital_CO</div>
+        <div class="brand-sub">Accede a tu cuenta</div>
+      </div>
+    </div>
+
+    <form class="auth-form" (ngSubmit)="login()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Usuario</mat-label>
+        <input matInput placeholder="Email o usuario" [(ngModel)]="username" name="username" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password" placeholder="Contraseña" [(ngModel)]="password" name="password" />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="btn-primary" type="submit">
+        Ingresar
+      </button>
+    </form>
+  </mat-card>
+</div>
